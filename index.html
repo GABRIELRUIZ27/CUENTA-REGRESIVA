@@ -85,8 +85,56 @@
     @keyframes prbit{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate(var(--bx),calc(var(--by) + 190px)) scale(1) rotate(var(--rot))}}
     .pr-rain{position:absolute;top:-30px;z-index:5;pointer-events:none;font-style:normal;animation:prrain var(--life) linear forwards}
     @keyframes prrain{to{transform:translate(var(--sw),calc(100% + 110vh)) rotate(var(--rot));opacity:.9}}
-    #chapter2 .modal-close{position:absolute;float:none;top:14px;right:14px}
+    #chapter2 .modal-close,#chapter3 .modal-close{position:absolute;float:none;top:14px;right:14px}
     @media(max-width:520px){.pr-orbit{--r:44vw}.pr-orbit span{font-size:1.15rem}.pr-actions{flex-direction:column}}
+
+    /* ===== Capítulo 3 · Gracias ===== */
+    .gr{background:radial-gradient(circle at 50% -5%,#ffd97836,transparent 55%),radial-gradient(circle at 92% 100%,#ff91ad40,transparent 52%),radial-gradient(circle at 4% 70%,#6e5cce38,transparent 46%)}
+    .gr-lanterns{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .gr-lanterns i{position:absolute;bottom:-70px;width:var(--w);height:calc(var(--w) * 1.25);border-radius:32% 32% 42% 42%/22% 22% 50% 50%;background:linear-gradient(#ffe9a8,#ffb454 60%,#ff8a5c);box-shadow:0 0 var(--g) #ffb45488,inset 0 -6px 12px #ff6f4a66;opacity:0;animation:lanternup var(--t) ease-in infinite,lanternflick 2.4s ease-in-out infinite}
+    @keyframes lanternup{0%{transform:translate(0,0);opacity:0}10%{opacity:.7}88%{opacity:.5}100%{transform:translate(var(--sw),-118vh);opacity:0}}
+    @keyframes lanternflick{50%{filter:brightness(1.3)}}
+    .gr-h{font-size:clamp(2.3rem,6vw,3.5rem);color:var(--gold);text-shadow:0 0 30px #ffd97866}
+    .gr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:620px;margin:12px auto 4px}
+    @media(min-width:620px){.gr-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .gr-card{position:relative;display:grid;border:1px solid #ffffff2e;border-radius:20px;padding:14px 12px;min-height:128px;background:#ffffff0d;color:var(--cream);cursor:pointer;backdrop-filter:blur(6px);transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .5s,border-color .5s,box-shadow .5s}
+    .gr-card:hover{transform:translateY(-3px)}
+    .gr-card:after{content:"";position:absolute;inset:-1px;border-radius:inherit;border:1px solid #ffd978;opacity:0;pointer-events:none;animation:grpulse 2.8s ease-in-out infinite;animation-delay:calc(2s + var(--n) * .35s)}
+    @keyframes grpulse{0%,100%{opacity:0;transform:scale(1)}50%{opacity:.7;transform:scale(1.04)}}
+    .gr-front,.gr-back{grid-area:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:opacity .5s,transform .5s}
+    .gr-front i{font-style:normal;font-size:1.9rem;color:#ffd978;opacity:.75;text-shadow:0 0 18px #ffd978}
+    .gr-front small{color:#cfc8ea;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+    .gr-back{opacity:0;transform:scale(.9)}
+    .gr-back b{font:600 1.4rem/1.1 "Cormorant Garamond",serif;color:#ffd978}
+    .gr-back span{font-size:.8rem;line-height:1.5;color:#e9e3f7}
+    .gr-card.lit{background:radial-gradient(circle at 50% 0,#ffd9783a,#ffffff0d 72%);border-color:#ffd978aa;box-shadow:0 0 34px #ffd97833,inset 0 0 24px #ffd97814}
+    .gr-card.lit:after{animation:none}
+    .gr-card.lit .gr-front{opacity:0;transform:scale(1.5)}
+    .gr-card.lit .gr-back{opacity:1;transform:none}
+    .gr-count{margin:14px 0 0;color:#dcd6ef;font-size:.88rem}.gr-count b{color:var(--gold);font-size:1.1rem}
+    .gr-next{display:none}
+    .gr-next.show{display:inline-block;animation:prline .9s cubic-bezier(.2,.7,.2,1) both,prpulse 2.4s 1s infinite}
+    .gr-spark{position:absolute;z-index:5;pointer-events:none;font-style:normal;animation:grspark var(--life) ease-out forwards}
+    @keyframes grspark{0%{opacity:0;transform:translate(0,0) scale(.3)}15%{opacity:1}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--rot))}}
+    /* regalo */
+    .gr-gift{position:relative;width:200px;height:190px;margin:16px auto 0;cursor:pointer;display:grid;place-items:center;outline:none;-webkit-tap-highlight-color:transparent}
+    .gr-rays{position:absolute;width:300px;height:300px;left:50%;top:50%;margin:-150px 0 0 -150px;border-radius:50%;background:repeating-conic-gradient(from 0deg,#ffd97852 0 8deg,transparent 8deg 24deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 68%);mask:radial-gradient(circle,#000 0,transparent 68%);animation:spin 26s linear infinite;pointer-events:none}
+    .gr-tw{position:absolute;left:50%;top:50%;margin:-.5em 0 0 -.5em;transform:translate(var(--x),var(--y));font-size:1.3rem;color:#ffd978;text-shadow:0 0 14px #ffd978;animation:grtw 2.2s ease-in-out infinite;animation-delay:var(--s)}
+    @keyframes grtw{0%,100%{opacity:.15;scale:.6}50%{opacity:1;scale:1.2}}
+    .gr-box{position:relative;width:128px;height:128px;margin-top:22px;animation:grbob 3.2s ease-in-out infinite}
+    @keyframes grbob{50%{transform:translateY(-10px)}}
+    .gr-body{position:absolute;left:8px;right:8px;bottom:0;height:80px;border-radius:0 0 14px 14px;background:linear-gradient(160deg,#ff91ad,#c4527a);box-shadow:0 18px 40px #ff91ad55}
+    .gr-lid{position:absolute;left:0;right:0;bottom:76px;height:34px;border-radius:10px;background:linear-gradient(160deg,#ffa8bf,#d65f88);transform-origin:left bottom;box-shadow:0 6px 14px #0004}
+    .gr-ribbon{position:absolute;left:50%;width:26px;margin-left:-13px;bottom:0;height:110px;background:linear-gradient(90deg,#e8b94e,#ffe596,#e8b94e);z-index:2}
+    .gr-bow{position:absolute;left:50%;bottom:104px;width:0;height:0;z-index:3}
+    .gr-bow:before,.gr-bow:after{content:"";position:absolute;bottom:0;width:38px;height:28px;border:7px solid #ffe596;box-sizing:border-box}
+    .gr-bow:before{right:1px;transform:rotate(-22deg);border-radius:50% 50% 0 50%}
+    .gr-bow:after{left:1px;transform:rotate(22deg);border-radius:50% 50% 50% 0}
+    .gr-bow i{position:absolute;left:-9px;bottom:-5px;width:18px;height:15px;border-radius:5px;background:#ffd978;z-index:1}
+    .gr-gift.shake .gr-box{animation:grshake .7s ease}
+    .gr-gift.shake .gr-lid{animation:grlid .7s ease}
+    @keyframes grshake{0%,100%{transform:rotate(0)}15%{transform:rotate(-9deg)}35%{transform:rotate(8deg)}55%{transform:rotate(-6deg)}75%{transform:rotate(4deg)}}
+    @keyframes grlid{30%,50%{transform:translateY(-14px) rotate(-7deg)}}
   </style>
 </head>
 <body>
@@ -112,7 +160,7 @@
     <nav class="days" aria-label="Capítulos diarios">
       <button class="day active" data-day="1"><span class="lock">✦</span><span class="number">01</span><small>Hoy · Lunes 12</small><span class="status">Espacio sideral</span><span class="card-count">Disponible ahora</span></button>
       <button class="day" data-day="2"><span class="lock">🔒</span><span class="number">??</span><small>Martes 13</small><span class="status">Una pregunta bonita</span><span class="card-count"></span></button>
-      <button class="day" data-day="3"><span class="lock">🔒</span><span class="number">??</span><small>Miércoles 14</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
+      <button class="day" data-day="3"><span class="lock">🔒</span><span class="number">??</span><small>Miércoles 14</small><span class="status">Gracias por todo</span><span class="card-count"></span></button>
       <button class="day" data-day="4"><span class="lock">🔒</span><span class="number">??</span><small>Jueves 15</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
       <button class="day" data-day="5"><span class="lock">🔒</span><span class="number">??</span><small>Viernes 16</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
       <button class="day" data-day="6"><span class="lock">🔒</span><span class="number">??</span><small>Sábado 17</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
@@ -163,6 +211,51 @@
             <button class="proposal-button pr-cta pr-fade" style="--d:1.6s" type="button" id="prClose"><span>Seguir nuestro camino →</span></button>
           </div>
         </div></section>
+      <section class="chapter" id="chapter3"><button class="modal-close" type="button" aria-label="Cerrar">×</button>
+        <div class="proposal gr" id="gratitude">
+          <div class="gr-lanterns" aria-hidden="true"></div>
+
+          <!-- Escena 1: introducción -->
+          <div class="pr-stage on" data-stage="intro">
+            <span class="song-meta">Capítulo tres · Miércoles 14</span>
+            <div class="pr-heart" aria-hidden="true"><span>💛</span><i></i><i></i><i></i></div>
+            <h3 class="pr-title pr-gold">Gracias, Osma</h3>
+            <p class="proposal-copy pr-line" style="--i:1">Ayer me dijiste que sí, y hoy lo único que quiero es darte las gracias. Por todo lo que has hecho por mí, por cada detalle, por tu tiempo, por tu paciencia y por la forma tan bonita en que haces que todo se sienta más ligero.</p>
+            <p class="proposal-copy pr-line" style="--i:2">No alcanzaría una sola página para agradecerte todo, así que encendí algunas luces para ti. Tócalas, una por una.</p>
+            <button class="proposal-button pr-cta pr-line" style="--i:3" id="grStart" type="button"><span>Encender las luces ✨</span></button>
+          </div>
+
+          <!-- Escena 2: luces de gratitud -->
+          <div class="pr-stage" data-stage="thanks">
+            <span class="song-meta pr-fade" style="--d:.1s">Pequeñas luces para ti</span>
+            <h3 class="pr-title pr-fade gr-h" style="--d:.25s">Gracias por…</h3>
+            <div class="gr-grid">
+          <button class="gr-card pr-fade" style="--n:0;--d:0.60s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tu tiempo</b><span>Por regalarme tus ratitos, incluso cuando estás ocupada.</span></span></button>
+          <button class="gr-card pr-fade" style="--n:1;--d:0.75s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tu escucha</b><span>Contigo hablar se siente fácil y tranquilo.</span></span></button>
+          <button class="gr-card pr-fade" style="--n:2;--d:0.90s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tus detalles</b><span>Por cuidarme y preocuparte por mí de una forma tan linda.</span></span></button>
+          <button class="gr-card pr-fade" style="--n:3;--d:1.05s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tu paciencia</b><span>Por entenderme y caminar a mi ritmo.</span></span></button>
+          <button class="gr-card pr-fade" style="--n:4;--d:1.20s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tu sonrisa</b><span>Esa que me arregla el día sin que te des cuenta.</span></span></button>
+          <button class="gr-card pr-fade" style="--n:5;--d:1.35s" type="button" aria-pressed="false"><span class="gr-front"><i>✦</i><small>Toca</small></span><span class="gr-back"><b>Tu sí</b><span>A esta historia, a nosotros y a empezar juntos.</span></span></button>
+            </div>
+            <p class="gr-count pr-fade" style="--d:1.6s"><b id="grCount">0</b> de 6 luces encendidas</p>
+            <button class="proposal-button pr-cta gr-next" id="grNext" type="button"><span>Hay algo más… 🎁</span></button>
+          </div>
+
+          <!-- Escena 3: el regalo de mañana -->
+          <div class="pr-stage" data-stage="gift">
+            <span class="song-meta pr-fade" style="--d:.1s">Una última cosa</span>
+            <div class="gr-gift pr-fade" id="grGift" style="--d:.3s" role="button" tabindex="0" aria-label="Regalo sorpresa, tócalo">
+              <div class="gr-rays"></div>
+              <span class="gr-tw" style="--x:-86px;--y:-40px;--s:0s">✦</span><span class="gr-tw" style="--x:84px;--y:-62px;--s:.7s">✧</span><span class="gr-tw" style="--x:96px;--y:36px;--s:1.3s">✦</span><span class="gr-tw" style="--x:-100px;--y:44px;--s:1.9s">✧</span>
+              <div class="gr-box"><div class="gr-body"></div><div class="gr-lid"></div><div class="gr-ribbon"></div><div class="gr-bow"><i></i></div></div>
+            </div>
+            <h3 class="pr-title pr-gold pr-fade" style="--d:.9s">Mañana, quizá…</h3>
+            <p class="proposal-copy pr-fade" style="--d:1.2s">Gracias por todo lo que haces por mí y por cada momento contigo. Mañana quizá llegue una sorpresa que te tengo preparada. Todavía no puedo decirte qué es, pero ojalá te haga sonreír tanto como tú me haces sonreír a mí.</p>
+            <p class="pr-hint pr-fade" id="grHint" style="--d:1.6s" aria-live="polite">Toca el regalo si te da curiosidad 🤭</p>
+            <p class="proposal-copy pr-fade" style="--d:1.9s;margin-top:4px"><strong>Te quiero muchísimo, mi novia.</strong></p>
+            <button class="proposal-button pr-cta pr-fade" style="--d:2.2s" type="button" id="grClose"><span>Hasta mañana ✦</span></button>
+          </div>
+        </div></section>
     </div>    <div class="closed-note" id="closed"><b>Todavía es sorpresa ✦</b><span id="closedText">Este detalle aparecerá cuando comience su día.</span></div>
   </main>
   <footer>Hecho para Osma, con cariño, un día a la vez ✦</footer>
@@ -179,7 +272,7 @@
     function shortWait(ms){if(ms<=0)return 'Disponible ahora';const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;return d?`Faltan ${d}d ${h}h`:`Faltan ${h}h ${m}min`}
     const dayLabels=['Lunes 12','Martes 13','Miércoles 14','Jueves 15','Viernes 16','Sábado 17'],dayEnd=Date.parse("2026-10-18T00:00:00-06:00");let lastToday=-2;
     function refreshLocks(){const now=Date.now();let today=-1;chapterDates.forEach((d,i)=>{const end=chapterDates[i+1]||dayEnd;if(now>=d&&now<end)today=i});document.querySelectorAll('.day').forEach((b,i)=>{const left=chapterDates[i]-now,open=left<=0,isToday=i===today;b.disabled=!open;b.querySelector('.lock').textContent=open?'✦':'🔒';b.querySelector('.number').textContent=open?pad(i+1):'??';b.querySelector('small').textContent=(isToday?'Hoy · ':'')+dayLabels[i];b.querySelector('.card-count').textContent=open?(isToday?'Disponible ahora':'Ya disponible'):shortWait(left);b.setAttribute('aria-label',open?'Abrir detalle '+(i+1):'Sorpresa '+(i+1)+' bloqueada')});if(today!==lastToday){lastToday=today;if(today>=0)document.querySelectorAll('.day').forEach((b,i)=>b.classList.toggle('active',i===today))}}
-    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<2){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
+    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2'),document.getElementById('chapter3')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<3){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
     function closeModal(){modalPanel.classList.remove('show');document.body.style.overflow=''}
     document.querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',closeModal));modalPanel.addEventListener('click',e=>{if(e.target===modalPanel)closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape'&&modalPanel.classList.contains('show'))closeModal()});
     function makeSpaceBurst(){for(let i=0;i<34;i++){const s=document.createElement('i');s.className='space-spark';const size=2+Math.random()*5;s.style.width=s.style.height=size+'px';s.style.left=50+Math.random()*10-5+'%';s.style.top=48+Math.random()*10-5+'%';s.style.setProperty('--sx',(-320+Math.random()*640)+'px');s.style.setProperty('--sy',(-240+Math.random()*480)+'px');universePanel.append(s);setTimeout(()=>s.remove(),1600)}}
@@ -222,6 +315,30 @@
       no.addEventListener('click',()=>{if(gaveIn)accept()});
       yes.addEventListener('click',accept);
       document.getElementById('prClose').addEventListener('click',closeModal);
+    })();
+  
+    /* ===== Capítulo 3 · Gracias ===== */
+    (()=>{
+      const box=document.getElementById('gratitude'),lay=box.querySelector('.gr-lanterns');
+      for(let i=0;i<12;i++){const l=document.createElement('i'),w=14+Math.random()*16;l.style.left=Math.random()*100+'%';l.style.setProperty('--w',w+'px');l.style.setProperty('--g',w*1.6+'px');l.style.setProperty('--t',12+Math.random()*10+'s');l.style.setProperty('--sw',-60+Math.random()*120+'px');l.style.animationDelay=(-Math.random()*18)+'s,'+(-Math.random()*3)+'s';lay.append(l)}
+      const go=name=>box.querySelectorAll('.pr-stage').forEach(s=>s.classList.toggle('on',s.dataset.stage===name));
+      const bits=['✨','💛','💗','🌟','🤍','💖'],pick=()=>bits[Math.floor(Math.random()*bits.length)];
+      const centerOf=el=>{const r=el.getBoundingClientRect(),b=box.getBoundingClientRect();return[r.left+r.width/2-b.left,r.top+r.height/2-b.top]};
+      function pop(x,y,n,spread){for(let i=0;i<n;i++){const s=document.createElement('i');s.className='gr-spark';s.textContent=pick();const a=Math.random()*Math.PI*2,d=spread*(.4+Math.random()*.6);s.style.left=x+'px';s.style.top=y+'px';s.style.fontSize=12+Math.random()*14+'px';s.style.setProperty('--bx',Math.cos(a)*d+'px');s.style.setProperty('--by',Math.sin(a)*d+'px');s.style.setProperty('--rot',(-200+Math.random()*400)+'deg');s.style.setProperty('--life',.9+Math.random()*.8+'s');box.append(s);setTimeout(()=>s.remove(),1800)}}
+      function rain(ms){const end=Date.now()+ms,t=setInterval(()=>{if(Date.now()>end){clearInterval(t);return}const r=document.createElement('i');r.className='pr-rain';r.textContent=pick();r.style.left=Math.random()*100+'%';r.style.fontSize=14+Math.random()*18+'px';r.style.setProperty('--sw',-60+Math.random()*120+'px');r.style.setProperty('--rot',(-200+Math.random()*400)+'deg');r.style.setProperty('--life',3.5+Math.random()*2.5+'s');box.append(r);setTimeout(()=>r.remove(),6200)},160)}
+
+      document.getElementById('grStart').addEventListener('click',()=>{go('thanks');const [x,y]=centerOf(box);pop(x,y*.5,20,260)});
+
+      const cards=[...box.querySelectorAll('.gr-card')],count=document.getElementById('grCount'),next=document.getElementById('grNext');
+      cards.forEach(c=>c.addEventListener('click',()=>{if(c.classList.contains('lit'))return;c.classList.add('lit');c.setAttribute('aria-pressed','true');const [x,y]=centerOf(c);pop(x,y,12,95);const n=cards.filter(k=>k.classList.contains('lit')).length;count.textContent=n;if(n===cards.length){setTimeout(()=>{const [bx,by]=centerOf(box);pop(bx,by*.6,36,300);rain(3500);next.classList.add('show')},500)}}));
+      next.addEventListener('click',()=>{go('gift');const [x,y]=centerOf(box);pop(x,y*.5,24,280)});
+
+      const gift=document.getElementById('grGift'),hint=document.getElementById('grHint');
+      const hs=['Todavía no 🤭','Paciencia, Osma 🤫','Mañana, quizá… 🎁','Ya casi, pero no hoy 💗'];let k=0;
+      function poke(){gift.classList.remove('shake');void gift.offsetWidth;gift.classList.add('shake');hint.textContent=hs[k%hs.length];k++;const [x,y]=centerOf(gift);pop(x,y,12,110)}
+      gift.addEventListener('click',poke);
+      gift.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();poke()}});
+      document.getElementById('grClose').addEventListener('click',closeModal);
     })();
   </script>
 </body>
