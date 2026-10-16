@@ -85,7 +85,7 @@
     @keyframes prbit{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate(var(--bx),calc(var(--by) + 190px)) scale(1) rotate(var(--rot))}}
     .pr-rain{position:absolute;top:-30px;z-index:5;pointer-events:none;font-style:normal;animation:prrain var(--life) linear forwards}
     @keyframes prrain{to{transform:translate(var(--sw),calc(100% + 110vh)) rotate(var(--rot));opacity:.9}}
-    #chapter2 .modal-close,#chapter3 .modal-close,#chapter4 .modal-close{position:absolute;float:none;top:14px;right:14px}
+    #chapter2 .modal-close,#chapter3 .modal-close,#chapter4 .modal-close,#chapter5 .modal-close{position:absolute;float:none;top:14px;right:14px}
     @media(max-width:520px){.pr-orbit{--r:44vw}.pr-orbit span{font-size:1.15rem}.pr-actions{flex-direction:column}}
 
     /* ===== Capítulo 3 · Gracias ===== */
@@ -184,6 +184,66 @@
     .bd-branch:after{content:"";position:absolute;right:10px;top:-14px;width:18px;height:12px;border-radius:0 100% 0 100%;background:#7fcf9a}
     .bd-spark{position:absolute;z-index:5;pointer-events:none;font-style:normal;animation:bdspark var(--life) ease-out forwards}
     @keyframes bdspark{0%{opacity:0;transform:translate(0,0) scale(.4)}15%{opacity:1}100%{opacity:0;transform:translate(var(--bx),var(--by)) scale(1) rotate(var(--rot))}}
+
+    /* ===== Capítulo 5 · Aunque estemos lejos ===== */
+    .fr{background:radial-gradient(circle at 50% -5%,#6fe3d62e,transparent 55%),radial-gradient(circle at 95% 95%,#ff91ad3a,transparent 50%),radial-gradient(circle at 0% 60%,#b69cff33,transparent 48%)}
+    .fr-sky{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .fr-aurora{position:absolute;left:-10%;right:-10%;top:-20%;height:55%;background:linear-gradient(100deg,#6fe3d62e,#b69cff2e,#ff91ad2e);filter:blur(40px);opacity:.75;animation:fraur 12s ease-in-out infinite alternate}
+    @keyframes fraur{from{transform:translateX(-8%) skewX(-8deg)}to{transform:translateX(8%) skewX(8deg)}}
+    .fr-sky i{position:absolute;left:var(--x);top:var(--y);width:90px;height:2px;border-radius:2px;background:linear-gradient(90deg,#fff,transparent);opacity:0;animation:frshoot var(--t) linear infinite;animation-delay:var(--dl)}
+    @keyframes frshoot{0%{opacity:0;transform:translate(0,0) rotate(35deg)}3%{opacity:1}11%{opacity:0;transform:translate(200px,140px) rotate(35deg)}100%{opacity:0}}
+    .fr-world{position:relative;width:100%;max-width:480px;height:150px;margin:14px auto 0}
+    .fr-line{position:absolute;top:50%;left:calc(12% + var(--p) * 38%);right:calc(12% + var(--p) * 38%);height:0;border-top:2px dashed #ffffff55;transition:left .12s,right .12s}
+    .fr-line span{position:absolute;top:-13px;left:0;color:#ff91ad;font-size:1.3rem;text-shadow:0 0 14px #ff6f9a;animation:frtravel 3s ease-in-out infinite alternate}
+    @keyframes frtravel{from{left:0}to{left:calc(100% - 1em)}}
+    .fr-orb{position:absolute;top:50%;width:68px;height:68px;margin-top:-34px;transform:translateX(-50%);transition:left .12s}
+    .fr-orb.me{left:calc(12% + var(--p) * 38%)}.fr-orb.her{left:calc(88% - var(--p) * 38%)}
+    .fr-orb .o{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;font:700 1.7rem "Cormorant Garamond",serif;color:#fff;animation:frbob 3s ease-in-out infinite}
+    .fr-orb.me .o{background:radial-gradient(circle at 35% 30%,#c9dcff,#6e5cce);box-shadow:0 0 34px #8fb7ffaa}
+    .fr-orb.her .o{background:radial-gradient(circle at 35% 30%,#ffe9b0,#ff6f9a);box-shadow:0 0 34px #ff91adaa;animation-delay:-1.5s}
+    @keyframes frbob{50%{transform:translateY(-9px)}}
+    .fr-heart{position:absolute;left:50%;top:50%;font-size:4.4rem;opacity:0;transform:translate(-50%,-50%) scale(.2);pointer-events:none}
+    .fr-heart span{display:block;filter:drop-shadow(0 0 22px #ff6f9a)}
+    .fr-world.met .fr-orb,.fr-world.met .fr-line{opacity:0;transition:opacity .35s}
+    .fr-world.met .fr-heart{animation:frmerge 1s cubic-bezier(.2,1.4,.3,1) forwards}
+    .fr-world.met .fr-heart span{animation:beat 1.6s ease-in-out 1s infinite}
+    @keyframes frmerge{to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+    .fr-dist{min-height:1.6em;margin:8px 0 6px;color:#ffe9b0;font:600 1.35rem "Cormorant Garamond",serif;letter-spacing:.02em}
+    .fr-range{--fill:0%;-webkit-appearance:none;appearance:none;width:min(340px,86%);height:44px;margin:4px auto 0;background:transparent;cursor:grab;touch-action:pan-y}
+    .fr-range:active{cursor:grabbing}
+    .fr-range::-webkit-slider-runnable-track{height:10px;border-radius:10px;background:linear-gradient(90deg,#ff91ad var(--fill),#ffffff26 var(--fill))}
+    .fr-range::-moz-range-track{height:10px;border-radius:10px;background:linear-gradient(90deg,#ff91ad var(--fill),#ffffff26 var(--fill))}
+    .fr-range::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:44px;margin-top:-17px;border-radius:50%;border:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4f86' d='M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.7 4.5 6.3 4.5c2 0 3.6 1.1 4.4 2.6.8-1.5 2.4-2.6 4.4-2.6 3.6 0 5.4 3.7 3.9 7.2C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center/62% no-repeat,radial-gradient(circle,#fff,#ffe3ea);box-shadow:0 0 22px #ff91adcc}
+    .fr-range::-moz-range-thumb{width:44px;height:44px;border-radius:50%;border:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4f86' d='M12 21s-7.5-4.6-9.6-9.3C.9 8.2 2.7 4.5 6.3 4.5c2 0 3.6 1.1 4.4 2.6.8-1.5 2.4-2.6 4.4-2.6 3.6 0 5.4 3.7 3.9 7.2C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center/62% no-repeat,radial-gradient(circle,#fff,#ffe3ea);box-shadow:0 0 22px #ff91adcc}
+    .fr-chat{width:100%;max-width:470px;margin:14px auto 0;border:1px solid #ffffff2a;border-radius:24px;background:#ffffff0c;backdrop-filter:blur(10px);overflow:hidden;text-align:left}
+    .fr-chat-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid #ffffff1c;background:#ffffff0d}
+    .fr-av{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8fb7ff,#6e5cce);font:700 1.05rem "Cormorant Garamond",serif;color:#fff}
+    .fr-chat-head b{display:block;font-size:.92rem;color:var(--cream)}.fr-chat-head small{color:#7fe3b0;font-size:.72rem}
+    .fr-msgs{display:flex;flex-direction:column;gap:8px;padding:16px 14px 10px;min-height:240px}
+    .fr-b{max-width:84%;padding:10px 14px;border-radius:18px;font-size:.95rem;line-height:1.5;animation:bdpop .45s cubic-bezier(.2,.9,.3,1.3) both}
+    .fr-b.him{align-self:flex-start;background:#ffffff1c;border:1px solid #ffffff22;color:#f6f1ff;border-bottom-left-radius:6px}
+    .fr-b.her{align-self:flex-end;background:linear-gradient(135deg,#ffd978,#ff91ad);color:#2a1730;font-weight:600;border-bottom-right-radius:6px}
+    .fr-b.typing{display:flex;gap:4px;padding:14px 16px}
+    .fr-b.typing i{width:7px;height:7px;border-radius:50%;background:#cfc8ea;animation:frdot 1s infinite}.fr-b.typing i:nth-child(2){animation-delay:.15s}.fr-b.typing i:nth-child(3){animation-delay:.3s}
+    @keyframes frdot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+    .fr-replies{display:none;flex-wrap:wrap;gap:8px;justify-content:center;padding:6px 14px 16px}
+    .fr-replies.show{display:flex;animation:prline .7s both}
+    .fr-chip{border:1px solid #ffd97888;background:#ffd9781a;color:#ffe9b0;border-radius:999px;padding:10px 16px;font-size:.9rem;cursor:pointer;transition:transform .25s,background .25s}
+    .fr-chip:hover{transform:translateY(-2px);background:#ffd97833}
+    .fr-next{display:none;margin-top:18px}
+    .fr-next.show{display:inline-block;animation:prline .9s both,prpulse 2.4s 1s infinite}
+    .fr-meter{width:100%;max-width:440px;margin:18px auto 8px}
+    .fr-bar{position:relative;height:26px;border-radius:999px;background:#ffffff14;border:1px solid #ffffff2a}
+    .fr-bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:999px;background:linear-gradient(90deg,#ff91ad,#ffd978);box-shadow:0 0 22px #ff91ad88}
+    .fr-pct{margin-top:12px;font:700 clamp(2.6rem,10vw,3.6rem)/1 "Cormorant Garamond",serif;color:var(--gold);text-shadow:0 0 30px #ffd97877}
+    .fr-meter.over .fr-bar{border-color:#ffd978;animation:frshake .4s infinite}
+    .fr-meter.over .fr-bar i{box-shadow:0 0 40px #ffd978,0 0 80px #ff91ad}
+    @keyframes frshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+    .fr-result{display:none;flex-direction:column;align-items:center}
+    .fr-result.show{display:flex;animation:rise .9s both}
+    .fr-err{margin:14px 0 4px;color:#ffb4c8;font-weight:700;font-size:.92rem}
+    .fr-result .proposal-copy{margin:8px auto;max-width:560px}
+    .fr-result .pr-cta{margin-top:18px}
   </style>
 </head>
 <body>
@@ -211,7 +271,7 @@
       <button class="day" data-day="2"><span class="lock">🔒</span><span class="number">??</span><small>Martes 13</small><span class="status">Una pregunta bonita</span><span class="card-count"></span></button>
       <button class="day" data-day="3"><span class="lock">🔒</span><span class="number">??</span><small>Miércoles 14</small><span class="status">Gracias por todo</span><span class="card-count"></span></button>
       <button class="day" data-day="4"><span class="lock">🔒</span><span class="number">??</span><small>Jueves 15</small><span class="status">Me dijo un pajarito</span><span class="card-count"></span></button>
-      <button class="day" data-day="5"><span class="lock">🔒</span><span class="number">??</span><small>Viernes 16</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
+      <button class="day" data-day="5"><span class="lock">🔒</span><span class="number">??</span><small>Viernes 16</small><span class="status">Aunque estemos lejos</span><span class="card-count"></span></button>
       <button class="day" data-day="6"><span class="lock">🔒</span><span class="number">??</span><small>Sábado 17</small><span class="status">Sorpresa</span><span class="card-count"></span></button>
     </nav>
     <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-label="Sorpresa del día">
@@ -344,6 +404,50 @@
             <button class="proposal-button pr-cta pr-fade" style="--d:2.4s" type="button" id="bdClose"><span>Hasta mañana ✦</span></button>
           </div>
         </div></section>
+      <section class="chapter" id="chapter5"><button class="modal-close" type="button" aria-label="Cerrar">×</button>
+        <div class="proposal fr" id="viernes">
+          <div class="fr-sky" aria-hidden="true"><div class="fr-aurora"></div><i style="--x:8%;--y:6%;--t:9s;--dl:1s"></i><i style="--x:50%;--y:2%;--t:13s;--dl:5s"></i><i style="--x:70%;--y:20%;--t:11s;--dl:8s"></i><i style="--x:-5%;--y:38%;--t:15s;--dl:3s"></i><i style="--x:30%;--y:55%;--t:12s;--dl:10s"></i></div>
+
+          <!-- Escena 1: acortar la distancia -->
+          <div class="pr-stage on" data-stage="far">
+            <span class="song-meta">Capítulo cinco · Viernes 16</span>
+            <h3 class="pr-title pr-fade" style="--d:.2s">Aunque estemos lejos</h3>
+            <p class="proposal-copy pr-fade" style="--d:.8s">Hay días en que la distancia se siente, pero hablar contigo me hace sentir tan bien que parece que estás aquí a mi lado.</p>
+            <div class="fr-world pr-fade" id="frWorld" style="--d:1.4s;--p:0">
+              <div class="fr-line"><span>♥</span></div>
+              <div class="fr-orb me"><span class="o">G</span></div>
+              <div class="fr-orb her"><span class="o">O</span></div>
+              <div class="fr-heart"><span>💗</span></div>
+            </div>
+            <p class="fr-dist pr-fade" id="frDist" style="--d:1.6s">Un poquito lejos…</p>
+            <input class="fr-range pr-fade" id="frRange" style="--d:2s" type="range" min="0" max="100" value="0" aria-label="Acortar la distancia entre los dos">
+            <p class="bd-tap pr-fade" style="--d:2.3s">Arrastra el corazón para acercarnos</p>
+          </div>
+
+          <!-- Escena 2: chat -->
+          <div class="pr-stage" data-stage="chat">
+            <span class="song-meta pr-fade" style="--d:.1s">Lo que quiero decirte</span>
+            <div class="fr-chat pr-fade" style="--d:.3s">
+              <div class="fr-chat-head"><span class="fr-av">G</span><div><b>Gabriel</b><small>● en línea</small></div></div>
+              <div class="fr-msgs" id="frMsgs" aria-live="polite"></div>
+              <div class="fr-replies" id="frReplies"><button class="fr-chip" type="button">Y a mí contigo 💗</button><button class="fr-chip" type="button">Me hiciste sonreír 😊</button><button class="fr-chip" type="button">Aquí estoy 🫶</button></div>
+            </div>
+            <button class="proposal-button pr-cta fr-next" id="frNext" type="button"><span>Ahora mírate tú 🪞</span></button>
+          </div>
+
+          <!-- Escena 3: medidor -->
+          <div class="pr-stage" data-stage="meter">
+            <span class="song-meta pr-fade" style="--d:.1s">Dato científico</span>
+            <h3 class="pr-title pr-fade" style="--d:.25s;font-size:clamp(2.3rem,6vw,3.5rem)">¿Qué tan hermosa eres?</h3>
+            <div class="fr-meter pr-fade" id="frMeter" style="--d:.6s"><div class="fr-bar"><i id="frFill"></i></div><div class="fr-pct" id="frPct">0%</div></div>
+            <button class="proposal-button pr-cta pr-fade" style="--d:1s" id="frMeasure" type="button"><span>Medir ✨</span></button>
+            <div class="fr-result" id="frResult">
+              <p class="fr-err">⚠ El medidor no tiene escala para tanta belleza</p>
+              <p class="proposal-copy">Eres hermosa por fuera, y por dentro todavía más. Me gustas muchísimo, Osma, y me encanta hablar contigo: cada plática me hace sentir tan bien, aunque estemos un poquito lejos.</p>
+              <button class="proposal-button pr-cta" type="button" id="frClose"><span>Con todo mi cariño 💗</span></button>
+            </div>
+          </div>
+        </div></section>
     </div>    <div class="closed-note" id="closed"><b>Todavía es sorpresa ✦</b><span id="closedText">Este detalle aparecerá cuando comience su día.</span></div>
   </main>
   <footer>Hecho para Osma, con cariño, un día a la vez ✦</footer>
@@ -360,7 +464,7 @@
     function shortWait(ms){if(ms<=0)return 'Disponible ahora';const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;return d?`Faltan ${d}d ${h}h`:`Faltan ${h}h ${m}min`}
     const dayLabels=['Lunes 12','Martes 13','Miércoles 14','Jueves 15','Viernes 16','Sábado 17'],dayEnd=Date.parse("2026-10-18T00:00:00-06:00");let lastToday=-2;
     function refreshLocks(){const now=Date.now();let today=-1;chapterDates.forEach((d,i)=>{const end=chapterDates[i+1]||dayEnd;if(now>=d&&now<end)today=i});document.querySelectorAll('.day').forEach((b,i)=>{const left=chapterDates[i]-now,open=left<=0,isToday=i===today;b.disabled=!open;b.querySelector('.lock').textContent=open?'✦':'🔒';b.querySelector('.number').textContent=open?pad(i+1):'??';b.querySelector('small').textContent=(isToday?'Hoy · ':'')+dayLabels[i];b.querySelector('.card-count').textContent=open?(isToday?'Disponible ahora':'Ya disponible'):shortWait(left);b.setAttribute('aria-label',open?'Abrir detalle '+(i+1):'Sorpresa '+(i+1)+' bloqueada')});if(today!==lastToday){lastToday=today;if(today>=0)document.querySelectorAll('.day').forEach((b,i)=>b.classList.toggle('active',i===today))}}
-    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2'),document.getElementById('chapter3'),document.getElementById('chapter4')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<4){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
+    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2'),document.getElementById('chapter3'),document.getElementById('chapter4'),document.getElementById('chapter5')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<5){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
     function closeModal(){modalPanel.classList.remove('show');document.body.style.overflow=''}
     document.querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',closeModal));modalPanel.addEventListener('click',e=>{if(e.target===modalPanel)closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape'&&modalPanel.classList.contains('show'))closeModal()});
     function makeSpaceBurst(){for(let i=0;i<34;i++){const s=document.createElement('i');s.className='space-spark';const size=2+Math.random()*5;s.style.width=s.style.height=size+'px';s.style.left=50+Math.random()*10-5+'%';s.style.top=48+Math.random()*10-5+'%';s.style.setProperty('--sx',(-320+Math.random()*640)+'px');s.style.setProperty('--sy',(-240+Math.random()*480)+'px');universePanel.append(s);setTimeout(()=>s.remove(),1600)}}
@@ -449,6 +553,43 @@
       let k=0;
       bird.addEventListener('click',()=>{bird.classList.remove('hop');void bird.offsetWidth;bird.classList.add('hop');bubble.textContent=msgs[k%msgs.length];k++;bubble.classList.remove('pop');void bubble.offsetWidth;bubble.classList.add('pop');const [x,y]=centerOf(bird);pop(x,y-10,9,110,true)});
       document.getElementById('bdClose').addEventListener('click',closeModal);
+    })();
+  
+    /* ===== Capítulo 5 · Aunque estemos lejos ===== */
+    (()=>{
+      const box=document.getElementById('viernes');
+      const go=name=>box.querySelectorAll('.pr-stage').forEach(s=>s.classList.toggle('on',s.dataset.stage===name));
+      const bits=['💛','💗','✨','🤍','💖'],pick=()=>bits[Math.floor(Math.random()*bits.length)],sleep=ms=>new Promise(r=>setTimeout(r,ms));
+      const centerOf=el=>{const r=el.getBoundingClientRect(),b=box.getBoundingClientRect();return[r.left+r.width/2-b.left,r.top+r.height/2-b.top]};
+      function pop(x,y,n,spread,up){for(let i=0;i<n;i++){const s=document.createElement('i');s.className='bd-spark';s.textContent=pick();const a=up?(-Math.PI/2+(Math.random()-.5)*1.6):Math.random()*Math.PI*2,d=spread*(.4+Math.random()*.6);s.style.left=x+'px';s.style.top=y+'px';s.style.fontSize=12+Math.random()*14+'px';s.style.setProperty('--bx',Math.cos(a)*d+'px');s.style.setProperty('--by',Math.sin(a)*d+'px');s.style.setProperty('--rot',(-160+Math.random()*320)+'deg');s.style.setProperty('--life',1+Math.random()*.9+'s');box.append(s);setTimeout(()=>s.remove(),2000)}}
+      const words=['hermosa','preciosa','linda','increíble','Osma','💗','✨','🌷','💛'];
+      function rain(ms){const end=Date.now()+ms,t=setInterval(()=>{if(Date.now()>end){clearInterval(t);return}const r=document.createElement('i'),w=words[Math.floor(Math.random()*words.length)];r.className='pr-rain';r.textContent=w;r.style.zIndex='1';r.style.opacity='.85';r.style.left=Math.random()*92+'%';if(w.length>2){r.style.font='italic 600 '+(20+Math.random()*10)+'px "Cormorant Garamond",serif';r.style.color='#ffe9b0';r.style.textShadow='0 0 14px #ffd978aa'}else r.style.fontSize=16+Math.random()*16+'px';r.style.setProperty('--sw',-50+Math.random()*100+'px');r.style.setProperty('--rot',(-25+Math.random()*50)+'deg');r.style.setProperty('--life',3.5+Math.random()*2.5+'s');box.append(r);setTimeout(()=>r.remove(),6200)},150)}
+
+      /* 1 · acortar la distancia */
+      const world=document.getElementById('frWorld'),range=document.getElementById('frRange'),dist=document.getElementById('frDist');let met=false;
+      function upd(){const v=range.value/100;world.style.setProperty('--p',v);range.style.setProperty('--fill',range.value+'%');dist.textContent=v<.34?'Un poquito lejos…':v<.67?'Cada vez más cerca…':v<.98?'Casi…':'¡Juntos!';if(v>=.98&&!met)meet()}
+      function meet(){met=true;range.value=100;world.style.setProperty('--p',1);range.style.setProperty('--fill','100%');range.disabled=true;world.classList.add('met');setTimeout(()=>{dist.textContent='Así se siente hablar contigo 💗'},700);const [x,y]=centerOf(world);pop(x,y,30,200);setTimeout(()=>pop(x,y,24,270),450);setTimeout(()=>{go('chat');startChat()},3000)}
+      range.addEventListener('input',upd);
+
+      /* 2 · chat */
+      const msgs=document.getElementById('frMsgs'),replies=document.getElementById('frReplies'),next=document.getElementById('frNext');let chatStarted=false;
+      const view=el=>el.scrollIntoView({behavior:'smooth',block:'nearest'});
+      async function say(text){const t=document.createElement('div');t.className='fr-b him typing';t.innerHTML='<i></i><i></i><i></i>';msgs.append(t);view(t);await sleep(900+Math.min(text.length*18,1000));t.remove();const b=document.createElement('div');b.className='fr-b him';b.textContent=text;msgs.append(b);view(b);await sleep(350)}
+      async function startChat(){if(chatStarted)return;chatStarted=true;await sleep(900);
+        for(const l of ['Hola, preciosa 🌷','Quería decirte algo que a veces me da pena decir…','Me encanta hablar contigo. De verdad.','Aunque estemos un poco lejos, cuando hablamos todo se siente cerca y tranquilo.','Me haces sentir tan bien, Osma 🥹'])await say(l);
+        replies.classList.add('show');view(replies)}
+      replies.querySelectorAll('.fr-chip').forEach(c=>c.addEventListener('click',async()=>{replies.classList.remove('show');const b=document.createElement('div');b.className='fr-b her';b.textContent=c.textContent;msgs.append(b);view(b);const [x,y]=centerOf(b);pop(x,y,14,120,true);await sleep(700);await say('Eso me hace muy feliz 💗');next.classList.add('show');view(next)}));
+      next.addEventListener('click',()=>go('meter'));
+
+      /* 3 · medidor */
+      const fill=document.getElementById('frFill'),pct=document.getElementById('frPct'),meter=document.getElementById('frMeter'),measure=document.getElementById('frMeasure'),result=document.getElementById('frResult');
+      measure.addEventListener('click',async()=>{measure.disabled=true;measure.style.opacity='.5';let v=0;
+        await new Promise(res=>{const t=setInterval(()=>{v+=2;fill.style.width=v+'%';pct.textContent=v+'%';if(v%20===0){const [x,y]=centerOf(fill);pop(x+(v-50)*2.2,y,4,60,true)}if(v>=100){clearInterval(t);res()}},30)});
+        meter.classList.add('over');
+        for(const t of ['150%','300%','999%','∞%']){await sleep(420);pct.textContent=t;const [x,y]=centerOf(pct);pop(x,y,10,150)}
+        await sleep(500);const [bx,by]=centerOf(meter);pop(bx,by,40,300);rain(6000);
+        result.classList.add('show');view(result)});
+      document.getElementById('frClose').addEventListener('click',closeModal);
     })();
   </script>
 </body>
