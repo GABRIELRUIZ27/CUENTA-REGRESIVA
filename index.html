@@ -85,7 +85,7 @@
     @keyframes prbit{0%{opacity:0;transform:translate(0,0) scale(.2) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate(var(--bx),calc(var(--by) + 190px)) scale(1) rotate(var(--rot))}}
     .pr-rain{position:absolute;top:-30px;z-index:5;pointer-events:none;font-style:normal;animation:prrain var(--life) linear forwards}
     @keyframes prrain{to{transform:translate(var(--sw),calc(100% + 110vh)) rotate(var(--rot));opacity:.9}}
-    #chapter2 .modal-close,#chapter3 .modal-close,#chapter4 .modal-close,#chapter5 .modal-close,#chapter6 .modal-close,#chapter7 .modal-close{position:absolute;float:none;top:14px;right:14px}
+    #chapter2 .modal-close,#chapter3 .modal-close,#chapter4 .modal-close,#chapter5 .modal-close,#chapter6 .modal-close,#chapter7 .modal-close,#chapter8 .modal-close{position:absolute;float:none;top:14px;right:14px}
     @media(max-width:520px){.pr-orbit{--r:44vw}.pr-orbit span{font-size:1.15rem}.pr-actions{flex-direction:column}}
 
     /* ===== Capítulo 3 · Gracias ===== */
@@ -345,6 +345,59 @@
     .dm-id .fields b{display:block;margin-top:2px;font-size:.84rem;color:#ffe9b0}
     .dm-id .big{position:relative;font:700 1.9rem/1.1 "Cormorant Garamond",serif;color:#ffe9b0;text-shadow:0 0 22px #ffd97866}
     .dm-id .sub{position:relative;font-size:.8rem;line-height:1.6;color:#e7defa}
+
+    /* ===== Capítulo 8 · La sorpresa ===== */
+    .lu{background:radial-gradient(circle at 50% -10%,#ffd97846,transparent 55%),radial-gradient(circle at 8% 100%,#b69cff40,transparent 52%),radial-gradient(circle at 96% 60%,#ff91ad3a,transparent 48%)}
+    .lu-glit{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .lu-glit i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);background:#ffe9a0;transform:rotate(45deg);box-shadow:0 0 9px #ffd978;opacity:0;animation:lutw var(--t) ease-in-out infinite;animation-delay:var(--dl)}
+    @keyframes lutw{0%,100%{opacity:0;scale:.3}50%{opacity:1;scale:1}}
+    .lu-track{position:relative;list-style:none;width:100%;max-width:440px;margin:16px auto 0;padding:0;text-align:left}
+    .lu-track li{position:relative;display:flex;align-items:center;gap:14px;padding:13px 16px;margin-bottom:9px;border:1px solid #ffffff22;border-radius:16px;background:#ffffff0c;backdrop-filter:blur(8px);opacity:0;transform:translateX(-14px);transition:opacity .5s,transform .5s,border-color .5s}
+    .lu-track li.in{opacity:1;transform:none}
+    .lu-track li.done{border-color:#7fe3b055}
+    .lu-track .dot{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid #ffffff44;background:#1b1440;font-size:.8rem;color:#1b1440;transition:all .4s}
+    .lu-track li.done .dot{background:#7fe3b0;border-color:#7fe3b0;box-shadow:0 0 16px #7fe3b0aa}
+    .lu-track li.done .dot:after{content:"✓";font-weight:700}
+    .lu-track li.last .dot{border-color:#ffd978;animation:prpulse 1.8s infinite}
+    .lu-track b{display:block;font-size:.95rem;color:#f3eefc;font-weight:600}
+    .lu-track small{display:block;margin-top:2px;color:#ffd978;font-size:.78rem}
+    .lu-track li>div{flex:1}
+    .lu-track .road{display:block;height:6px;margin-top:8px;border-radius:6px;background:repeating-linear-gradient(110deg,#ffd978 0 10px,#ffd97833 10px 20px);background-size:40px 100%;animation:luroad 1s linear infinite}
+    @keyframes luroad{to{background-position:40px 0}}
+    .lu-track .pk{font-style:normal;font-size:1.8rem;animation:luhop 1.6s ease-in-out infinite}
+    @keyframes luhop{50%{transform:translateY(-7px) rotate(6deg)}}
+    .lu-scene{position:relative;width:min(340px,100%);height:340px;margin:12px auto 0;border-radius:26px;overflow:hidden;border:1px solid #ffffff2e;background:radial-gradient(circle at 50% 40%,#2a2058,#120d30);touch-action:none;cursor:crosshair;--lx:50%;--ly:50%;box-shadow:0 18px 50px #0007}
+    .lu-clue{position:absolute;left:var(--cx);top:var(--cy);width:42%;transform:translate(-50%,-50%);padding:9px 10px;border-radius:14px;border:1px solid #ffd97855;background:#ffffff12;color:#fff3dc;font-size:.78rem;line-height:1.4;text-align:center;z-index:1;transition:background .6s,border-color .6s,box-shadow .6s}
+    .lu-clue.found{z-index:3;border-color:#ffd978;background:#ffd9781f;box-shadow:0 0 22px #ffd97855}
+    .lu-dark{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle at var(--lx) var(--ly),transparent 0,transparent 46px,#0a0720f2 112px);transition:opacity 1.3s}
+    .lu-beam{position:absolute;z-index:4;left:var(--lx);top:var(--ly);width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:radial-gradient(circle,#ffe9a044,transparent 68%);pointer-events:none;mix-blend-mode:screen;transition:opacity 1s}
+    .lu-scene.lit .lu-dark,.lu-scene.lit .lu-beam{opacity:0}
+    .lu-verse{margin:8px auto 4px;max-width:520px}
+    .lu-verse p{margin:7px 0;font:600 clamp(1.45rem,5.2vw,1.9rem)/1.3 "Cormorant Garamond",serif;color:#fff1d6;text-shadow:0 0 24px #ffd97855;opacity:0;animation:prline .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(1.5s + var(--i) * 1.2s)}
+    .lu-endbox{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:12px}
+    /* promesa (se activa con PROMESA_ACTIVA) */
+    .lu-ring{position:relative;width:150px;height:150px;margin:6px auto 0;display:grid;place-items:center}
+    .lu-ring svg{width:130px;filter:drop-shadow(0 0 22px #ffd97899);animation:luring 6s ease-in-out infinite}
+    @keyframes luring{0%,100%{transform:rotateY(-18deg) translateY(0)}50%{transform:rotateY(18deg) translateY(-8px)}}
+    .lu-ring i{position:absolute;font-style:normal;color:#fff3c8;text-shadow:0 0 14px #ffd978;animation:grtw 2.2s ease-in-out infinite}
+    .lu-ring .s1{left:8px;top:30px}.lu-ring .s2{right:6px;top:18px;animation-delay:.7s}.lu-ring .s3{right:20px;bottom:18px;animation-delay:1.3s}
+    .lu-hold{position:relative;width:150px;height:150px;margin:14px auto 6px;border:0;border-radius:50%;background:radial-gradient(circle,#ffffff14,#ffffff06);color:#fff3dc;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;display:grid;place-items:center;font:600 .86rem/1.35 system-ui,sans-serif;text-align:center;-webkit-tap-highlight-color:transparent;transition:transform .2s,background .6s,box-shadow .6s;box-shadow:0 0 34px #ffd97822}
+    .lu-hold svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+    .lu-hold circle{fill:none;stroke-width:5}
+    .lu-hold .bg{stroke:#ffffff26}
+    .lu-hold .fg{stroke:#ffd978;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:calc(440 * (1 - var(--p,0)))}
+    .lu-hold span{position:relative;padding:0 22px}
+    .lu-hold.holding{transform:scale(.95)}
+    .lu-hold.sealed{background:radial-gradient(circle,#ffe9b0,#ffd978);color:#3a2340;font-weight:800;box-shadow:0 0 60px #ffd978aa}
+    .lu-after{display:none;flex-direction:column;align-items:center;width:100%}
+    .lu-after.show{display:flex;animation:rise .8s both}
+    .lu-vows{max-width:540px;margin:10px auto 0}
+    .lu-vows p{margin:0 0 11px;padding:0 6px;color:#f4effd;font-size:1rem;line-height:1.65;opacity:0;transform:translateY(10px);transition:opacity .8s,transform .8s}
+    .lu-vows p.in{opacity:1;transform:none}
+    .lu-sign{margin:6px 0 4px;color:var(--gold);font:italic 600 1.5rem "Cormorant Garamond",serif;opacity:0;transition:opacity .9s}
+    .lu-sign.in{opacity:1}
+    .lu-after .pr-cta{margin-top:12px;opacity:0;pointer-events:none;transition:opacity .9s}
+    .lu-after .pr-cta.in{opacity:1;pointer-events:auto}
   </style>
 </head>
 <body>
@@ -661,6 +714,84 @@
             </div>
           </div>
         </div></section>
+      <section class="chapter" id="chapter8"><button class="modal-close" type="button" aria-label="Cerrar">×</button>
+        <div class="proposal lu" id="lunes">
+          <div class="lu-glit" aria-hidden="true"></div>
+
+          <!-- Escena 1: seguimiento de la sorpresa -->
+          <div class="pr-stage on" data-stage="track">
+            <span class="song-meta">Capítulo ocho · Lunes 19</span>
+            <h3 class="pr-title pr-gold pr-fade" style="--d:.2s">Ya quieres saber, ¿verdad?</h3>
+            <p class="proposal-copy pr-fade" style="--d:.8s">Me dijiste que ya querías saber, y sé que la curiosidad te está ganando 😄. Te voy a dejar una pista, pero antes mira cómo va tu sorpresa.</p>
+            <ol class="lu-track pr-fade" style="--d:1.3s" id="luTrack">
+              <li><span class="dot"></span><div><b>Pensada contigo en la cabeza</b></div></li>
+              <li><span class="dot"></span><div><b>Elegida con muchísimo cariño</b></div></li>
+              <li><span class="dot"></span><div><b>Comprada con una sonrisa</b></div></li>
+              <li class="last"><span class="dot"></span><div><b>En camino hacia ti</b><small>Llegada estimada: muy pronto</small><i class="road"></i></div><i class="pk">📦</i></li>
+            </ol>
+            <button class="proposal-button pr-cta sb-next" id="luToFlash" type="button"><span>Quiero la pista 🔦</span></button>
+          </div>
+
+          <!-- Escena 2: la linterna -->
+          <div class="pr-stage" data-stage="flash">
+            <span class="song-meta pr-fade" style="--d:.1s">Una pista</span>
+            <h3 class="pr-title pr-fade" style="--d:.25s;font-size:clamp(2.2rem,6vw,3.3rem)">Busca con la linterna</h3>
+            <p class="bd-tap pr-fade" style="--d:.6s;margin:0">🔦 Mueve la luz para encontrar las pistas</p>
+            <div class="lu-scene pr-fade" style="--d:.8s" id="luScene">
+              <div class="lu-clue" style="--cx:27%;--cy:17%">Hace unos días me dijiste que algo te había gustado…</div>
+              <div class="lu-clue" style="--cx:73%;--cy:30%">Lo guardé en mi memoria y lo hice realidad 💛</div>
+              <div class="lu-clue" style="--cx:28%;--cy:50%">Lo elegí pensando solo en ti</div>
+              <div class="lu-clue" style="--cx:73%;--cy:68%">Hay una parte que significa muchísimo más que las demás</div>
+              <div class="lu-clue" style="--cx:36%;--cy:86%">Ya viene en camino hacia ti 🚚</div>
+              <div class="lu-dark"></div><div class="lu-beam"></div>
+            </div>
+            <p class="gr-count pr-fade" style="--d:1.2s"><b id="luCount">0</b> de 5 pistas encontradas</p>
+            <button class="proposal-button pr-cta sb-next" id="luToHint" type="button"><span>Ver la pista final ✨</span></button>
+          </div>
+
+          <!-- Escena 3: la pista final -->
+          <div class="pr-stage" data-stage="hint">
+            <span class="song-meta pr-fade" style="--d:.1s">La pista</span>
+            <div class="pr-heart big pr-fade" style="--d:.3s" aria-hidden="true"><span>🎁</span><i></i><i></i><i></i></div>
+            <h3 class="pr-title pr-gold pr-fade" style="--d:.8s;font-size:clamp(2rem,6vw,3rem)">Esto es lo único que te diré…</h3>
+            <div class="lu-verse">
+              <p style="--i:0">Algo para que te veas aún más hermosa,</p>
+              <p style="--i:1">algo con lo que te sientas cómoda,</p>
+              <p style="--i:2">y algo para que nunca dudes de lo que siento por ti.</p>
+            </div>
+            <p class="proposal-copy pr-fade" style="--d:5.2s">Pronto lo tendrás en tus manos. Cuando llegue, regresa a esta carta 💛</p>
+            <div class="lu-endbox pr-fade" style="--d:5.8s">
+              <button class="proposal-button pr-cta" type="button" id="luPromiseBtn" style="display:none"><span>Abrir la última parte</span></button>
+              <button class="proposal-button pr-cta" type="button" id="luClose"><span>Hasta pronto 💛</span></button>
+            </div>
+          </div>
+
+          <template id="luPromiseTpl">
+            <div class="pr-stage" data-stage="promise">
+              <span class="song-meta pr-fade" style="--d:.1s">Una promesa</span>
+              <div class="lu-ring pr-fade" style="--d:.3s" aria-hidden="true">
+                <svg viewBox="0 0 120 130"><defs><linearGradient id="luGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1b8"/><stop offset=".5" stop-color="#e8b94e"/><stop offset="1" stop-color="#fff1b8"/></linearGradient><linearGradient id="luGem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#bfe9ff"/><stop offset="1" stop-color="#e6d4ff"/></linearGradient></defs>
+                  <circle cx="60" cy="82" r="32" fill="none" stroke="url(#luGold)" stroke-width="10"/>
+                  <path d="M60 14 L76 30 L60 50 L44 30 Z" fill="url(#luGem)" stroke="#fff" stroke-width="1.5"/><path d="M44 30 H76 M60 14 L52 30 L60 50 L68 30 Z" fill="none" stroke="#ffffffaa" stroke-width="1"/>
+                  <path d="M52 50 L60 56 L68 50" fill="none" stroke="#e8b94e" stroke-width="4" stroke-linecap="round"/></svg>
+                <i class="s1">✦</i><i class="s2">✧</i><i class="s3">✦</i>
+              </div>
+              <h3 class="pr-title pr-gold pr-fade" style="--d:.7s;font-size:clamp(2.1rem,6vw,3.2rem)">Este anillo es una promesa</h3>
+              <p class="proposal-copy pr-fade" style="--d:1.1s">No es solo un regalo: es mi manera de decirte que voy en serio contigo, a nuestro ritmo y sin prisa.</p>
+              <button class="lu-hold pr-fade" style="--d:1.5s" id="luHold" type="button" aria-label="Mantén presionado para sellar la promesa"><svg viewBox="0 0 150 150" aria-hidden="true"><circle class="bg" cx="75" cy="75" r="70"/><circle class="fg" cx="75" cy="75" r="70"/></svg><span id="luHoldTxt">Mantén presionado para sellar mi promesa</span></button>
+              <div class="lu-after" id="luAfter">
+                <div class="lu-vows" id="luVows">
+                  <p>Te prometo cuidarte, escucharte y estar contigo en tus días bonitos y también en los difíciles.</p>
+                  <p>Te prometo ser honesto contigo y hablar cuando algo me preocupe, para que nunca dudes de lo que siento.</p>
+                  <p>Te prometo seguir eligiéndote, un día a la vez, a nuestro ritmo y sin prisa.</p>
+                  <p>Y te prometo hacerte reír siempre que pueda.</p>
+                </div>
+                <div class="lu-sign" id="luSign">Con todo mi corazón, Gabriel 💛</div>
+                <button class="proposal-button pr-cta" id="luVowClose" type="button"><span>Prometido 💍</span></button>
+              </div>
+            </div>
+          </template>
+        </div></section>
     </div>    <div class="closed-note" id="closed"><b>Todavía es sorpresa ✦</b><span id="closedText">Este detalle aparecerá cuando comience su día.</span></div>
   </main>
   <footer>Hecho para Osma, con cariño, un día a la vez ✦</footer>
@@ -675,9 +806,9 @@
     setInterval(()=>{const s=document.createElement('i');s.className='shoot';s.style.left=-140+Math.random()*45+'vw';s.style.top=Math.random()*45+'vh';document.querySelector('.shooting-stars').append(s);setTimeout(()=>s.remove(),1200)},4800);
     function pad(n){return String(n).padStart(2,'0')}function tick(){let d=Math.max(0,finalDate-Date.now());days.textContent=pad(Math.floor(d/864e5));hours.textContent=pad(Math.floor(d/36e5)%24);minutes.textContent=pad(Math.floor(d/6e4)%60);seconds.textContent=pad(Math.floor(d/1000)%60);refreshLocks()}setInterval(tick,1000);
     function shortWait(ms){if(ms<=0)return 'Disponible ahora';const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60;return d?`Faltan ${d}d ${h}h`:`Faltan ${h}h ${m}min`}
-    const dayLabels=['Lunes 12','Martes 13','Miércoles 14','Jueves 15','Viernes 16','Sábado 17','Domingo 18','Lunes 19'],dayEnd=Date.parse("2026-10-20T00:00:00-06:00");let lastToday=-2;
-    function refreshLocks(){const now=Date.now();let today=-1;chapterDates.forEach((d,i)=>{const end=chapterDates[i+1]||dayEnd;if(now>=d&&now<end)today=i});document.querySelectorAll('.day').forEach((b,i)=>{const left=chapterDates[i]-now,open=left<=0,isToday=i===today;b.disabled=!open;b.querySelector('.lock').textContent=open?'✦':'🔒';b.querySelector('.number').textContent=open?pad(i+1):'??';b.querySelector('small').textContent=(isToday?'Hoy · ':'')+dayLabels[i];b.querySelector('.card-count').textContent=open?(isToday?'Disponible ahora':'Ya disponible'):shortWait(left);b.setAttribute('aria-label',open?'Abrir detalle '+(i+1):'Sorpresa '+(i+1)+' bloqueada')});if(today!==lastToday){lastToday=today;if(today>=0)document.querySelectorAll('.day').forEach((b,i)=>b.classList.toggle('active',i===today))}}
-    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2'),document.getElementById('chapter3'),document.getElementById('chapter4'),document.getElementById('chapter5'),document.getElementById('chapter6'),document.getElementById('chapter7')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<7){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
+    const dayLabels=['Lunes 12','Martes 13','Miércoles 14','Jueves 15','Viernes 16','Sábado 17','Domingo 18','Lunes 19'],dayEnd=Date.parse("2026-10-20T00:00:00-06:00");let lastToday=-2;const MONDAY_OPEN=Date.parse("2026-10-18T00:00:00-06:00");
+    function refreshLocks(){const now=Date.now();let today=-1;chapterDates.forEach((d,i)=>{const end=chapterDates[i+1]||dayEnd;if(now>=d&&now<end)today=i});document.querySelectorAll('.day').forEach((b,i)=>{const unlockAt=i===7?Math.min(chapterDates[i],MONDAY_OPEN):chapterDates[i],left=unlockAt-now,open=left<=0,isToday=i===today;b.disabled=!open;b.querySelector('.lock').textContent=open?'✦':'🔒';b.querySelector('.number').textContent=open?pad(i+1):'??';b.querySelector('small').textContent=(isToday?'Hoy · ':'')+dayLabels[i];b.querySelector('.card-count').textContent=open?(isToday?'Disponible ahora':(i===7?'Se abrió antes 💛':'Ya disponible')):shortWait(left);b.setAttribute('aria-label',open?'Abrir detalle '+(i+1):'Sorpresa '+(i+1)+' bloqueada')});const cdBox=document.querySelector('.countdown');if(cdBox)cdBox.style.display=now>=MONDAY_OPEN?'none':'';if(today!==lastToday){lastToday=today;if(today>=0)document.querySelectorAll('.day').forEach((b,i)=>b.classList.toggle('active',i===today))}}
+    const chapters=[document.getElementById('chapter1'),document.getElementById('chapter2'),document.getElementById('chapter3'),document.getElementById('chapter4'),document.getElementById('chapter5'),document.getElementById('chapter6'),document.getElementById('chapter7'),document.getElementById('chapter8')];document.querySelectorAll('.day').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(i<8){closedPanel.classList.remove('show');chapters.forEach((c,j)=>c.classList.toggle('show',j===i));modalPanel.classList.add('show');document.body.style.overflow='hidden'}else{closedPanel.classList.add('show');closedMessage.textContent='El detalle de este día ya puede abrirse; muy pronto pondremos aquí su canción y su mensaje ♡';closedPanel.scrollIntoView({behavior:'smooth'})}}));tick();
     function closeModal(){modalPanel.classList.remove('show');document.body.style.overflow=''}
     document.querySelectorAll('.modal-close').forEach(b=>b.addEventListener('click',closeModal));modalPanel.addEventListener('click',e=>{if(e.target===modalPanel)closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape'&&modalPanel.classList.contains('show'))closeModal()});
     function makeSpaceBurst(){for(let i=0;i<34;i++){const s=document.createElement('i');s.className='space-spark';const size=2+Math.random()*5;s.style.width=s.style.height=size+'px';s.style.left=50+Math.random()*10-5+'%';s.style.top=48+Math.random()*10-5+'%';s.style.setProperty('--sx',(-320+Math.random()*640)+'px');s.style.setProperty('--sy',(-240+Math.random()*480)+'px');universePanel.append(s);setTimeout(()=>s.remove(),1600)}}
@@ -883,6 +1014,58 @@
       async function flip(){id.classList.toggle('flip');const [x,y]=centerOf(id);pop(x,y,18,200);if(!flipped){flipped=true;await sleep(1400);pop(x,y,30,260);rain(5000);end.classList.add('show');view(end)}}
       id.addEventListener('click',flip);id.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
       document.getElementById('dmClose').addEventListener('click',closeModal);
+    })();
+  
+    /* ===== Capítulo 8 · La sorpresa ===== */
+    (()=>{
+      /* ► CAMBIA ESTO A true CUANDO ELLA YA TENGA EL ANILLO EN LAS MANOS ◄ */
+      const PROMESA_ACTIVA = false;
+
+      const box=document.getElementById('lunes'),glit=box.querySelector('.lu-glit');
+      for(let i=0;i<34;i++){const g=document.createElement('i');g.style.setProperty('--x',Math.random()*100+'%');g.style.setProperty('--y',Math.random()*100+'%');g.style.setProperty('--s',3+Math.random()*5+'px');g.style.setProperty('--t',3+Math.random()*4+'s');g.style.setProperty('--dl',-Math.random()*6+'s');glit.append(g)}
+      const go=name=>box.querySelectorAll('.pr-stage').forEach(s=>s.classList.toggle('on',s.dataset.stage===name));
+      const bits=PROMESA_ACTIVA?['💛','✨','💍','🤍','💗']:['💛','✨','🎁','🤍','💗'],pick=()=>bits[Math.floor(Math.random()*bits.length)],sleep=ms=>new Promise(r=>setTimeout(r,ms));
+      const centerOf=el=>{const r=el.getBoundingClientRect(),b=box.getBoundingClientRect();return[r.left+r.width/2-b.left,r.top+r.height/2-b.top]};
+      const view=el=>el.scrollIntoView({behavior:'smooth',block:'nearest'});
+      function pop(x,y,n,spread,up){for(let i=0;i<n;i++){const s=document.createElement('i');s.className='bd-spark';s.textContent=pick();const a=up?(-Math.PI/2+(Math.random()-.5)*1.6):Math.random()*Math.PI*2,d=spread*(.4+Math.random()*.6);s.style.left=x+'px';s.style.top=y+'px';s.style.fontSize=12+Math.random()*14+'px';s.style.setProperty('--bx',Math.cos(a)*d+'px');s.style.setProperty('--by',Math.sin(a)*d+'px');s.style.setProperty('--rot',(-160+Math.random()*320)+'deg');s.style.setProperty('--life',1+Math.random()*.9+'s');box.append(s);setTimeout(()=>s.remove(),2000)}}
+      function rain(ms){const end=Date.now()+ms,t=setInterval(()=>{if(Date.now()>end){clearInterval(t);return}const r=document.createElement('i');r.className='pr-rain';r.textContent=pick();r.style.zIndex='1';r.style.left=Math.random()*94+'%';r.style.fontSize=14+Math.random()*18+'px';r.style.setProperty('--sw',-50+Math.random()*100+'px');r.style.setProperty('--rot',(-200+Math.random()*400)+'deg');r.style.setProperty('--life',3.5+Math.random()*2.5+'s');box.append(r);setTimeout(()=>r.remove(),6200)},170)}
+
+      /* 1 · seguimiento */
+      const items=[...box.querySelectorAll('#luTrack li')],toFlash=document.getElementById('luToFlash');let tracked=false;
+      async function startTrack(){if(tracked)return;tracked=true;await sleep(2200);
+        for(const li of items){li.classList.add('in');view(li);await sleep(650);if(!li.classList.contains('last')){li.classList.add('done');const [x,y]=centerOf(li.querySelector('.dot'));pop(x,y,6,60,true)}await sleep(450)}
+        await sleep(500);toFlash.classList.add('show');view(toFlash)}
+      document.querySelector('.day[data-day="8"]').addEventListener('click',startTrack);
+      toFlash.addEventListener('click',()=>{go('flash');startFlash()});
+
+      /* 2 · linterna */
+      const scene=document.getElementById('luScene'),clues=[...scene.querySelectorAll('.lu-clue')],cnt=document.getElementById('luCount'),toHint=document.getElementById('luToHint');
+      let found=0,interacted=false,doneFlash=false,flashOn=false;
+      function setLight(x,y){scene.style.setProperty('--lx',x+'px');scene.style.setProperty('--ly',y+'px');const W=scene.clientWidth,H=scene.clientHeight;clues.forEach(c=>{if(c.classList.contains('found'))return;const cx=parseFloat(c.style.getPropertyValue('--cx'))/100*W,cy=parseFloat(c.style.getPropertyValue('--cy'))/100*H;if(Math.hypot(cx-x,cy-y)<64){c.classList.add('found');found++;cnt.textContent=found;const [px,py]=centerOf(c);pop(px,py,10,90);if(found===clues.length&&!doneFlash){doneFlash=true;setTimeout(()=>{scene.classList.add('lit');const [bx,by]=centerOf(scene);pop(bx,by,30,220);toHint.classList.add('show');view(toHint)},900)}}})}
+      function onMove(e){interacted=true;const r=scene.getBoundingClientRect();setLight(Math.max(0,Math.min(r.width,e.clientX-r.left)),Math.max(0,Math.min(r.height,e.clientY-r.top)))}
+      scene.addEventListener('pointermove',onMove);scene.addEventListener('pointerdown',onMove);
+      function startFlash(){if(flashOn)return;flashOn=true;let t=0;const loop=()=>{if(interacted||doneFlash)return;t+=.016;const W=scene.clientWidth,H=scene.clientHeight;setLight(W*(.5+.34*Math.sin(t*.8)),H*(.5+.34*Math.sin(t*1.15+1)));requestAnimationFrame(loop)};requestAnimationFrame(loop)}
+      toHint.addEventListener('click',()=>{go('hint');setTimeout(()=>{const [x,y]=centerOf(box);pop(x,y*.5,20,240)},300)});
+      document.getElementById('luClose').addEventListener('click',closeModal);
+
+      /* 3 · promesa (solo si PROMESA_ACTIVA = true) */
+      if(PROMESA_ACTIVA){
+        const tpl=document.getElementById('luPromiseTpl');box.append(tpl.content.cloneNode(true));
+        const pb=document.getElementById('luPromiseBtn');pb.style.display='';pb.querySelector('span').textContent+=' 💍';document.getElementById('luClose').style.display='none';
+        pb.addEventListener('click',()=>go('promise'));
+        const hold=document.getElementById('luHold'),txt=document.getElementById('luHoldTxt'),after=document.getElementById('luAfter'),vows=[...box.querySelectorAll('#luVows p')],sign=document.getElementById('luSign'),vclose=document.getElementById('luVowClose');
+        let holding=false,p=0,last=0,sealed=false;
+        function frame(ts){if(sealed)return;const dt=last?ts-last:16;last=ts;p=holding?Math.min(1,p+dt/1800):Math.max(0,p-dt/500);hold.style.setProperty('--p',p);if(p>=1){seal();return}if(holding||p>0)requestAnimationFrame(frame);else last=0}
+        function down(e){if(sealed)return;e.preventDefault();holding=true;hold.classList.add('holding');last=0;requestAnimationFrame(frame)}
+        function up(){holding=false;hold.classList.remove('holding')}
+        hold.addEventListener('pointerdown',down);['pointerup','pointercancel','pointerleave'].forEach(t=>hold.addEventListener(t,up));
+        hold.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)down(e)});hold.addEventListener('keyup',up);
+        hold.addEventListener('contextmenu',e=>e.preventDefault());
+        async function seal(){sealed=true;holding=false;hold.classList.remove('holding');hold.classList.add('sealed');txt.textContent='Prometido 💍';const [x,y]=centerOf(hold);pop(x,y,40,260);rain(5500);await sleep(900);after.classList.add('show');view(after);
+          for(const v of vows){await sleep(1100);v.classList.add('in');view(v)}
+          await sleep(1100);sign.classList.add('in');await sleep(900);vclose.classList.add('in');view(vclose)}
+        vclose.addEventListener('click',closeModal);
+      }
     })();
   </script>
 </body>
