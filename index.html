@@ -426,6 +426,69 @@
     .pa-spark{position:absolute;left:50%;top:50%;z-index:6;pointer-events:none;font-style:normal;animation:paspark 1.3s cubic-bezier(.15,.7,.3,1) forwards}
     @keyframes paspark{from{transform:translate(0,0) scale(.5);opacity:1}to{transform:translate(var(--bx),var(--by)) scale(1.2);opacity:0}}
     .pa-sign{margin-top:12px;color:var(--gold);font:italic 600 1.5rem "Cormorant Garamond",serif}
+  
+    /* ===== Inicio compacto (optimizado) ===== */
+    header{min-height:auto;padding:clamp(22px,5vh,48px) 18px 8px}
+    .hero h1{font-size:clamp(2.6rem,8vw,5.2rem);margin:16px auto 12px}
+    .intro{margin:0 auto 18px;font-size:clamp(.94rem,1.8vw,1.05rem);line-height:1.7}
+    .countdown{margin:16px auto 10px}
+    .hero-actions{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:6px}
+    .scroll{margin-top:10px}
+    .note-pill{margin-top:12px}
+    .love-note{margin:22px auto 34px;padding:clamp(24px,5vw,40px)}
+    .love-note h2{font-size:clamp(1.9rem,4.4vw,2.9rem);margin-bottom:12px}
+    .section-title{margin:34px auto 22px}
+    .section-title h2{font-size:clamp(2.1rem,5vw,3.4rem)}
+    .day{min-height:132px;padding:16px 18px}
+    .day small{margin:4px 0 10px}
+    .day .number{font-size:2.1rem}
+    main{padding-bottom:70px}
+    .extra-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+    .extra-row .extra-day{margin-top:0;padding:18px 20px;min-height:118px}
+    .extra-row .extra-day .ex-ico{right:18px;font-size:2rem}
+    .extra-row .extra-day strong{font-size:clamp(1.4rem,3vw,1.8rem);padding-right:42px}
+    @media(max-width:760px){.extra-row{grid-template-columns:1fr}}
+
+    /* Tarjeta destacada · Día del Médico */
+    .today-card{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;width:min(620px,100%);margin:20px auto 0;padding:16px 22px;text-align:left;border:1px solid #ffd978aa;border-radius:24px;color:#fff;cursor:pointer;background:linear-gradient(120deg,#2a1f5c,#6a2a5c 60%,#8f3a63);box-shadow:0 18px 44px #5a2a6a55;transition:transform .25s;animation:paglow 2.6s ease-in-out infinite}
+    .today-card:hover{transform:translateY(-3px)}
+    .today-card .tc-ico{flex:none;font-size:2.4rem;animation:beat 1.6s ease-in-out infinite}
+    .today-card .tc-tag{display:block;color:var(--gold);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .today-card strong{display:block;margin:4px 0 2px;font:600 clamp(1.5rem,4vw,2rem)/1.1 "Cormorant Garamond",serif}
+    .today-card small{color:#e6dff7;font-size:.8rem}
+    .today-card:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#ffffff40,transparent);transform:skewX(-20deg);animation:prshine 4s ease-in-out infinite}
+
+    /* ===== Nota · Día del Médico ===== */
+    #chapter10 .modal-close{position:absolute;float:none;top:14px;right:14px}
+    .dm{background:radial-gradient(circle at 50% -8%,#ffd97844,transparent 55%),radial-gradient(circle at 5% 100%,#ff91ad3a,transparent 50%),radial-gradient(circle at 96% 60%,#8fb7ff2e,transparent 46%)}
+    .dm-rx{position:relative;width:100%;max-width:540px;margin:14px auto 6px;padding:26px 24px 18px;text-align:left;color:#4a3250;background:linear-gradient(#fffaf0,#ffeedd);border-radius:12px;box-shadow:0 24px 60px #0008,0 0 0 1px #ffffff55}
+    .dm-rx:before{content:"";position:absolute;top:-11px;left:50%;width:90px;height:22px;margin-left:-45px;background:#ff91ad99;transform:rotate(-3deg);border-radius:3px}
+    .dm-rx-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:2px solid #e9c9d3}
+    .dm-rx-head b{font:700 2.4rem/1 "Cormorant Garamond",serif;color:#b35d79}
+    .dm-rx-head span{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8d6a7d;text-align:right;line-height:1.5}
+    .dm-rx-pac{margin:10px 0 6px;font-size:.82rem;color:#6a5470}.dm-rx-pac strong{color:#a84f6d}
+    .dm-dose{display:flex;align-items:flex-start;gap:12px;width:100%;margin:8px 0 0;padding:12px 12px;border:1px dashed #d9b3c1;border-radius:14px;background:#ffffff80;color:#4a3250;text-align:left;font:inherit;cursor:pointer;transition:.3s}
+    .dm-dose:hover{transform:translateY(-2px)}
+    .dm-dose .box{flex:none;width:26px;height:26px;margin-top:2px;display:grid;place-items:center;border:2px solid #d28aa3;border-radius:8px;color:transparent;font-weight:800;transition:.3s}
+    .dm-dose b{display:block;font-size:.88rem;color:#8d3f5d}
+    .dm-dose span.t{display:block;margin-top:3px;font-size:.84rem;line-height:1.55;color:#6a5470}
+    .dm-dose .t{opacity:.0;max-height:0;overflow:hidden;transition:.5s}
+    .dm-dose.lit{border-style:solid;border-color:#e5a3b9;background:#fff}
+    .dm-dose.lit .box{background:#ff91ad;border-color:#ff91ad;color:#fff}
+    .dm-dose.lit .t{opacity:1;max-height:120px}
+    .dm-rx-foot{margin-top:12px;font:italic 600 1.15rem "Cormorant Garamond",serif;color:#8d3f5d;text-align:right}
+    .dm-cert{position:relative;width:100%;max-width:560px;margin:10px auto 6px;padding:26px 22px;text-align:center;color:#3b2a14;border-radius:14px;background:linear-gradient(145deg,#fff6dc,#ffe9b6);box-shadow:0 24px 60px #0008;outline:2px solid #c99a2e;outline-offset:-10px}
+    .dm-cert small{display:block;font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#8a6516}
+    .dm-cert h4{margin:8px 0 6px;font:600 clamp(1.7rem,5vw,2.3rem)/1.05 "Cormorant Garamond",serif;color:#5b3a0b}
+    .dm-cert p{margin:6px auto;max-width:430px;font-size:.88rem;line-height:1.65;color:#5a4420}
+    .dm-cert .nm{display:block;margin:6px 0;font:italic 600 clamp(2.2rem,7vw,3rem)/1 "Cormorant Garamond",serif;color:#b35d79}
+    .dm-cert .seal{display:inline-grid;place-items:center;width:58px;height:58px;margin-top:8px;border-radius:50%;background:radial-gradient(circle,#ff8fae,#c4527a);color:#fff;font-size:1.6rem;box-shadow:0 6px 16px #c4527a66;animation:beat 1.8s ease-in-out infinite}
+    .dm-letter{max-width:560px;margin:10px auto 0;color:#e8e2f6;line-height:1.85;font-size:.96rem}
+    .dm-letter p{margin:0 0 12px}.dm-letter strong{color:#ffb4c8}
+    .dm-next{display:none}.dm-next.show{display:inline-block;animation:rise .8s both}
+    #dm-spark-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:6}
+    .dm-spark{position:absolute;left:50%;top:50%;pointer-events:none;font-style:normal;animation:paspark 1.3s cubic-bezier(.15,.7,.3,1) forwards}
+
   </style>
 </head>
 <body>
@@ -434,18 +497,21 @@
     <div class="hero">
       <span class="kicker">✦ Un detalle cada día</span>
       <h1>Hay algo bonito <em>esperando por ti</em></h1>
-      <p class="intro">Desde hoy, cada día aparecerá aquí una pequeña sorpresa. No tienes que adivinar hacia dónde vamos; solamente disfrutar el camino.</p>
+      <p class="intro">Cada día trae aquí una pequeña sorpresa, y hoy tiene una muy especial. No tienes que adivinar nada; solo disfrutar el camino.</p>
       <div class="countdown" aria-label="Cuenta regresiva para el lunes">
         <div class="time"><strong id="days">00</strong><span>días</span></div><div class="time"><strong id="hours">00</strong><span>horas</span></div><div class="time"><strong id="minutes">00</strong><span>minutos</span></div><div class="time"><strong id="seconds">00</strong><span>segundos</span></div>
       </div>
-      <button class="scroll" id="goToDetails" type="button" style="border-width:0 0 1px;background:transparent;font:inherit;cursor:pointer">Descubre el detalle de hoy ↓</button>
-      <div><button class="note-pill" id="notePill" type="button">💛 Hay una nota nueva para ti hoy</button></div>
+      
+      <div class="hero-actions">
+        <button class="today-card" id="doctorCard" type="button"><span class="tc-ico" aria-hidden="true">🩺</span><span><span class="tc-tag" id="dcTag">Nota especial · 23 de octubre</span><strong>Feliz Día del Médico, Osma</strong><small>Hoy también es tu día. Toca para abrir tu nota 💛</small></span></button>
+        <button class="scroll" id="goToDetails" type="button" style="border-width:0 0 1px;background:transparent;font:inherit;cursor:pointer">Descubre el detalle de hoy ↓</button>
+      </div>
     </div>
   </header>
   <section class="love-note">
     <span>Lo que significas para mí</span>
     <h2>Eres alguien muy bonita en mi vida</h2>
-    <p>Quiero que sepas lo linda que eres para mí, no solamente por tu sonrisa, sino por tu manera de ser, por cómo cuidas, por todo lo que transmites y por la calma que siento cuando estás cerca. <strong>Te quiero muchísimo y me importas de verdad.</strong> Me hace feliz poder conocerte, compartir momentos contigo y descubrir cada día un poquito más de la persona tan especial que eres.</p>
+    <p>Quiero que sepas lo linda que eres para mí, no solamente por tu sonrisa, sino por tu manera de ser, por cómo cuidas, por todo lo que transmites y por la calma que siento cuando estás cerca. <strong>Te amo muchísimo y me importas de verdad.</strong> Me hace feliz poder conocerte, compartir momentos contigo y descubrir cada día un poquito más de la persona tan especial que eres.</p>
   </section>
   <main id="capitulos">
     <div class="section-title"><span>La cuenta regresiva</span><h2>Una sorpresa por cada día</h2><p>El detalle de hoy ya está listo. Los demás se abrirán automáticamente al comenzar cada nuevo día.</p></div>
@@ -459,7 +525,10 @@
       <button class="day" data-day="7"><span class="lock">🔒</span><span class="number">??</span><small>Domingo 18</small><span class="status">Ayer fue muy lindo</span><span class="card-count"></span></button>
       <button class="day" data-day="8"><span class="lock">🔒</span><span class="number">??</span><small>Lunes 19</small><span class="status">La gran sorpresa</span><span class="card-count"></span></button>
     </nav>
-    <button class="extra-day" id="extraDay" type="button"><span class="ex-tag">Nota extra · Miércoles 21</span><strong>Para mi futura paramédica 🩺</strong><small>Un botiquín de ánimo y un premio especial</small><span class="ex-ico" aria-hidden="true">💛</span></button>
+    <div class="extra-row">
+      <button class="extra-day" id="extraDay2" type="button"><span class="ex-tag">Nota especial · 23 de octubre</span><strong>Feliz Día del Médico 🩺</strong><small>Una receta de amor y un reconocimiento para ti</small><span class="ex-ico" aria-hidden="true">💗</span></button>
+      <button class="extra-day" id="extraDay" type="button"><span class="ex-tag">Nota extra · Miércoles 21</span><strong>Para mi futura paramédica 🩺</strong><small>Un botiquín de ánimo y un premio especial</small><span class="ex-ico" aria-hidden="true">💛</span></button>
+    </div>
     <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-label="Sorpresa del día">
       <section class="chapter show" id="chapter1"><button class="modal-close" id="modalClose" type="button" aria-label="Cerrar">×</button>
         <div class="player"><span class="song-meta">Capítulo uno</span><h3>Espacio sideral</h3><div class="artist">Porque si pudiera regalarte un universo entero, elegiría recorrerlo contigo.</div><div class="chapter-letter"><strong>Me importas muchísimo.</strong> Me parece increíble la persona que eres: tan linda, fuerte, dedicada y llena de cosas bonitas. Estoy muy orgulloso de ti, de todo lo que haces y de la forma en que sigues adelante incluso cuando los días se vuelven pesados. Quiero que recuerdes que no tienes que cargar con todo tú sola; en los días buenos quiero celebrar contigo y en los difíciles quiero estar a tu lado, escucharte, cuidarte y recordarte lo valiosa que eres. Te quiero mucho, y para mí siempre será importante saber que estás bien.</div><div class="chapter-letter secondary">Quizá no pueda regalarte literalmente la luna, el cielo, el sol y el mar; pero quiero que sepas que <strong>sí quisiera darte todo lo bonito que existe.</strong> Y si algún día el mundo pesa demasiado, quiero ser esa persona que vuele a tu lado.</div><div id="spotifyEmbed" class="spotify-player"></div><div class="timeline"><i id="progress"></i></div><small class="audio-note">Al reproducir la canción, la letra y el universo comenzarán contigo ♡</small></div>
@@ -842,6 +911,49 @@
             <button class="proposal-button pr-cta pr-fade" style="--d:2s" id="paClose" type="button"><span>Gracias por creer en mí 💛</span></button>
           </div>
         </div></section>
+      <section class="chapter" id="chapter10"><button class="modal-close" type="button" aria-label="Cerrar">×</button>
+        <div class="proposal pa dm" id="doctorNote">
+          <div id="dm-spark-layer" aria-hidden="true"></div>
+          <div class="pr-stage on" data-stage="intro">
+            <span class="song-meta">Nota especial · 23 de octubre</span>
+            <svg class="pa-ecg pr-fade" style="--d:.3s" viewBox="0 0 320 60" aria-hidden="true"><path d="M0 30H100l10-18 12 40 12-50 12 38 8-10H320"/></svg>
+            <h3 class="pr-title pr-gold pr-fade" style="--d:.5s">Hoy también es tu día</h3>
+            <p class="proposal-copy pr-fade" style="--d:1.1s">Hoy es Día del Médico, y aunque todavía estás estudiando, quise celebrarte desde ahora. Cuidar a otros no empieza el día que te dan un título: empieza en quien eres, y tú ya tienes ese corazón.</p>
+            <p class="proposal-copy pr-fade" style="--d:1.8s">Pasa por consulta un momentito: el doctor de hoy eres tú, pero esta vez yo te receto algo a ti.</p>
+            <button class="proposal-button pr-cta pr-fade" style="--d:2.5s" id="dmStart" type="button"><span>Ver mi receta 💊</span></button>
+          </div>
+          <div class="pr-stage" data-stage="rx">
+            <span class="song-meta">Consulta del día</span>
+            <div class="dm-rx">
+              <div class="dm-rx-head"><b>Rx</b><span>Receta de cariño<br>23 · 10 · 2026</span></div>
+              <p class="dm-rx-pac">Paciente: <strong>Osma, futura paramédica</strong></p>
+              <button class="dm-dose" type="button"><span class="box">✓</span><span><b>1 · Orgullo, cada mañana</b><span class="t">Recuerda que lo que estudias no es fácil, y aun así sigues. Eso solo lo hace quien tiene vocación de verdad.</span></span></button>
+              <button class="dm-dose" type="button"><span class="box">✓</span><span><b>2 · Descanso sin culpa</b><span class="t">Dormir, comer bien y respirar también es parte de cuidar. No puedes cuidar a otros si no te cuidas tú.</span></span></button>
+              <button class="dm-dose" type="button"><span class="box">✓</span><span><b>3 · Confianza en tus manos</b><span class="t">Todo lo que practicas hoy es lo que mañana va a ayudar a alguien en su peor momento. Eso es enorme.</span></span></button>
+              <button class="dm-dose" type="button"><span class="box">✓</span><span><b>4 · Un abrazo mío, sin límite</b><span class="t">Aunque estemos lejos, tómalo las veces que lo necesites. No caduca y no tiene efectos secundarios, salvo sonreír 💛</span></span></button>
+              <div class="dm-rx-foot">Dr. Gabriel, con mucho amor</div>
+            </div>
+            <p class="gr-count"><b id="dmCount">0</b> de 4 indicaciones tomadas</p>
+            <button class="proposal-button pr-cta dm-next" id="dmNext" type="button"><span>Hay un reconocimiento para ti 🏅</span></button>
+          </div>
+          <div class="pr-stage" data-stage="cert">
+            <span class="song-meta pr-fade" style="--d:.1s">Reconocimiento oficial</span>
+            <div class="dm-cert pr-fade" style="--d:.3s">
+              <small>Día del Médico · 23 de octubre</small>
+              <h4>Se reconoce con cariño a</h4>
+              <span class="nm">Osma</span>
+              <p>futura paramédica de corazón enorme, por su valentía, su dedicación y esa manera tan bonita de cuidar a los demás.</p>
+              <p><em>Tu vocación ya se nota, y va a salvar vidas.</em></p>
+              <span class="seal" aria-hidden="true">💗</span>
+            </div>
+            <div class="dm-letter pr-fade" style="--d:.9s">
+              <p>Osma, hoy se celebra a quienes dedican su vida a cuidar la de otros, y yo quería celebrarte a ti, que ya vas por ese camino. Sé que no es fácil: hay desvelos, nervios, días largos y momentos en que uno duda. Pero también sé lo que hay detrás: <strong>vocación, fuerza y un corazón muy grande.</strong></p>
+              <p>Algún día, alguien va a seguir adelante gracias a tus manos y a tu calma, y yo voy a estar ahí aplaudiéndote más fuerte que nadie. Mientras tanto, déjame cuidarte a ti, aunque sea con palabras. Estoy muy orgulloso de ti y te amo muchísimo.</p>
+            </div>
+            <div class="pa-sign pr-fade" style="--d:1.6s">Feliz Día del Médico mi amor 💛 Gabriel</div>
+            <button class="proposal-button pr-cta pr-fade" style="--d:2.1s" id="dmClose" type="button"><span>Gracias, amor 💛</span></button>
+          </div>
+        </div></section>
     </div>    <div class="closed-note" id="closed"><b>Todavía es sorpresa ✦</b><span id="closedText">Este detalle aparecerá cuando comience su día.</span></div>
   </main>
   <section class="promesa-final" id="promesa" aria-label="Una promesa">
@@ -1159,12 +1271,31 @@
       function pop(n,spread){for(let i=0;i<n;i++){const e=document.createElement('i');e.className='pa-spark';e.textContent=bits[i%bits.length];const a=Math.random()*Math.PI*2,d=spread*(.4+Math.random()*.6);e.style.fontSize=14+Math.random()*16+'px';e.style.setProperty('--bx',Math.cos(a)*d+'px');e.style.setProperty('--by',Math.sin(a)*d*.8+'px');box.append(e);setTimeout(()=>e.remove(),1400)}}
       function openNote(){closedPanel.classList.remove('show');chapters.forEach(c=>c.classList.toggle('show',c===ch));modalPanel.classList.add('show');document.body.style.overflow='hidden';go('intro')}
       document.getElementById('extraDay').addEventListener('click',openNote);
-      document.getElementById('notePill').addEventListener('click',openNote);
+      const np=document.getElementById('notePill');if(np)np.addEventListener('click',openNote);
       document.getElementById('paStart').addEventListener('click',()=>{go('kit');pop(14,220)});
       const items=[...box.querySelectorAll('.pa-item')],say=document.getElementById('paSay'),count=document.getElementById('paCount'),next=document.getElementById('paNext');
       items.forEach(b=>b.addEventListener('click',()=>{b.classList.add('lit');say.textContent=b.dataset.t;pop(8,150);const n=items.filter(x=>x.classList.contains('lit')).length;count.textContent=n;if(n===items.length)next.classList.add('show')}));
       next.addEventListener('click',()=>{go('prize');pop(30,300);setTimeout(()=>pop(24,320),500)});
       document.getElementById('paClose').addEventListener('click',closeModal);
+    })();
+  </script>
+
+  <script>
+    (()=>{
+      const box=document.getElementById('doctorNote'),ch=document.getElementById('chapter10'),layer=document.getElementById('dm-spark-layer');
+      if(!chapters.includes(ch))chapters.push(ch);
+      const go=n=>box.querySelectorAll('.pr-stage').forEach(x=>x.classList.toggle('on',x.dataset.stage===n));
+      const bits=['💛','💗','✨','🩺','🌟','💊'];
+      function pop(n,spread){for(let i=0;i<n;i++){const e=document.createElement('i');e.className='dm-spark';e.textContent=bits[i%bits.length];const a=Math.random()*Math.PI*2,d=spread*(.4+Math.random()*.6);e.style.fontSize=14+Math.random()*16+'px';e.style.setProperty('--bx',Math.cos(a)*d+'px');e.style.setProperty('--by',Math.sin(a)*d*.8+'px');layer.append(e);setTimeout(()=>e.remove(),1400)}}
+      function openDoctor(){closedPanel.classList.remove('show');chapters.forEach(c=>c.classList.toggle('show',c===ch));modalPanel.classList.add('show');document.body.style.overflow='hidden';go('intro')}
+      ['doctorCard','extraDay2'].forEach(id=>document.getElementById(id).addEventListener('click',openDoctor));
+      const tag=document.getElementById('dcTag'),isDay=new Date().toLocaleDateString('en-CA',{timeZone:'America/Mexico_City'})==='2026-10-23';
+      if(tag)tag.textContent=isDay?'Hoy · 23 de octubre · Día del Médico':'Nota especial · 23 de octubre';
+      document.getElementById('dmStart').addEventListener('click',()=>{go('rx');pop(14,220)});
+      const doses=[...box.querySelectorAll('.dm-dose')],count=document.getElementById('dmCount'),next=document.getElementById('dmNext');
+      doses.forEach(b=>b.addEventListener('click',()=>{b.classList.add('lit');pop(7,140);const n=doses.filter(x=>x.classList.contains('lit')).length;count.textContent=n;if(n===doses.length)next.classList.add('show')}));
+      next.addEventListener('click',()=>{go('cert');pop(30,300);setTimeout(()=>pop(24,320),500)});
+      document.getElementById('dmClose').addEventListener('click',closeModal);
     })();
   </script>
 </body>
